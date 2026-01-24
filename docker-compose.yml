@@ -25,6 +25,9 @@ services:
       args:
         # Pass backend port at build time for Next.js static optimization
         - BACKEND_PORT=${BACKEND_PORT:-8001}
+        - 'NEXT_PUBLIC_API_BASE_EXTERNAL=${NEXT_PUBLIC_API_BASE_EXTERNAL}'
+        - 'NEXT_PUBLIC_API_BASE=${NEXT_PUBLIC_API_BASE}'
+2. Match the Coolify UI Variables
     container_name: deeptutor
     restart: unless-stopped
     ports:
