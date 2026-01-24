@@ -158,14 +158,7 @@ app = FastAPI(
     redirect_slashes=False,
 )
 
-# Configure CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific frontend origin
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
 
 # Mount user directory as static root for generated artifacts
 # This allows frontend to access generated artifacts (images, PDFs, etc.)
@@ -250,3 +243,13 @@ if __name__ == "__main__":
         reload=True,
         reload_excludes=reload_excludes,
     )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://deeptutor.q-solutions.pk", 
+        "http://deeptutor.q-solutions.pk"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
