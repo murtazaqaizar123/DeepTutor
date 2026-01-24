@@ -68,7 +68,7 @@ services:
     container_name: deeptutor-proxy
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "8080:80"
     depends_on:
       - deeptutor
     networks:
