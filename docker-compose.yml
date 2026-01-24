@@ -62,14 +62,13 @@ services:
   # Nginx Reverse Proxy Service
   # ============================================
   nginx:
-    image: nginx:alpine
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
     container_name: deeptutor-proxy
     restart: unless-stopped
     ports:
       - "80:80"
-    volumes:
-      # You MUST create this nginx.conf file in the same directory
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
       - deeptutor
     networks:
